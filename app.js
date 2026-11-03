@@ -4,6 +4,7 @@
 const express = require("express");
 const fs = require("fs").promises;
 const path = require("path");
+const cors = require("cors");
 
 // Create the Express application
 const app = express();
@@ -18,6 +19,7 @@ const DATA_FILE = path.join(__dirname, "courses.json");
 const ALLOWED_STATUSES = ["Not Started", "In Progress", "Completed"];
 
 // Middleware that allows Express to read JSON request bodies
+app.use(cors());
 app.use(express.json());
 
 /*
